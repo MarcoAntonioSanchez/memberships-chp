@@ -1,0 +1,88 @@
+<%- include("partials/_header_redeem") %>
+<div class="custom-empty-half-space"></div>
+<h1 class="text-light text-uppercase text-center">Promociones</h1>
+<div class="custom-empty-half-space"></div>
+<div class="container mb-5">
+  <div class="row">
+    <div class="col">
+      <h2 class="fs-6 text-light text-center">
+        No olvides registrar tu visita:
+        <a
+          href="/register-visit/?member=<%= memberQr %>"
+          class="btn btn-primary ms-3 fw-semibold text-uppercase btn-custom-shadow"
+          >Registrar Visita</a
+        >
+      </h2>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <% if (promos) { %> <% for(var i = 0; i < promos.length; i++) { %>
+      <div class="card custom-card-shadow">
+        <img
+          src="/uploads/<%= promos[i].image %>"
+          alt=""
+          class="card-img-top"
+        />
+        <% if (userId > 0 && userId < 12) { %>
+        <div class="card-body text-center">
+          <a
+            href="/redeem/<%= promos[i].id %>/?member=<%= memberQr %>"
+            class="btn btn-warning fw-semibold text-uppercase mobile-btn-csize btn-custom-shadow my-5"
+          >
+            Canjear Promoción
+          </a>
+        </div>
+        <% } %>
+      </div>
+      <div class="custom-empty-half-space"></div>
+      <% } %> <% } %>
+    </div>
+  </div>
+</div>
+<script src="/js/hide-promo-name.js"></script>
+<%- include("partials/_footer") %>
+
+<!-- <table class="table table-hover mx-auto">
+  <thead>
+    <tr>
+      <th>Tipo de Promo</th>
+      <th>Imagen</th>
+      <th>Operaciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if (promos) { %> <% for(var i = 0; i < promos.length; i++) { %>
+    <tr class="d-flex flex-column">
+      <td id="promo-type" style="display: none">
+        <%= promos[i].membershipType %>
+      </td>
+      <td
+        id="promo-img"
+        style="
+          background-image: url('/uploads/<%= promos[i].image %>');
+          background-size: contain;
+          background-repeat: no-repeat;
+        "
+      ></td>
+      <% if (userId > 0 && userId < 12) { %>
+      <td>
+        <div
+          class="custom-resp-width d-flex align-items-center justify-content-center"
+        >
+          <a
+            href="/redeem/<%= promos[i].id %>/?member=<%= memberQr %>"
+            class="btn btn-warning fw-semibold text-uppercase mobile-btn-csize btn-custom-shadow"
+          >
+            Canjear Promoción
+          </a>
+        </div>
+      </td>
+      <% } %>
+    </tr>
+    <% } %> <% } %>
+    <div class="custom-empty-space"></div>
+  </tbody>
+</table> -->

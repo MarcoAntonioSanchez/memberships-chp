@@ -1,0 +1,121 @@
+<%- include("partials/_header") %>
+<div class="custom-empty-half-space"></div>
+<h1 class="text-light text-uppercase text-center">
+  Editar Membresía #<%= members.variableQR %>
+</h1>
+<div class="custom-empty-half-space"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-sm-12 mx-auto">
+      <div
+        class="card-body w-100 mx-auto bg-light p-3 rounded-1 custom-card-shadow"
+      >
+        <form action="/update/<%= members.id %>" method="POST">
+          <input
+            type="number"
+            name="id"
+            value="<%= members.id %>"
+            placeholder="ID de Membresía"
+            class="form-control mb-2"
+            disabled
+            hidden
+          />
+          <input
+            type="text"
+            name="branch"
+            value="<%= members.branch %>"
+            placeholder="Sucursal"
+            class="form-control mb-2"
+            disabled
+            hidden
+          />
+          <label for="membership">TIPO DE MEMBRESÍA</label>
+          <input
+            type="text"
+            name="membership"
+            value="<%= members.membership %>"
+            placeholder="Tipo de membresía"
+            class="form-control mb-2"
+            disabled
+          />
+          <label for="name">NOMBRE</label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Nombre"
+            value="<%= members.name %>"
+            class="form-control mb-2"
+            autofocus
+          />
+          <label for="address">CORREO</label>
+          <input
+            type="email"
+            name="address"
+            value="<%= members.address %>"
+            placeholder="E-mail"
+            class="form-control mb-2"
+          />
+          <label for="phone">TELÉFONO</label>
+          <input
+            type="text"
+            name="phone"
+            placeholder="Teléfono"
+            value="<%= members.phone %>"
+            class="form-control mb-2"
+          />
+          <label for="phone">MEDIOS DE CONTACTO</label>
+          <input
+            type="text"
+            name="cmeans"
+            value="<%= members.cmeans %>"
+            class="form-control mb-2"
+          />
+          <label for="startDate">Fecha de nacimiento:</label>
+          <input
+            id="startDate"
+            class="form-control mb-2"
+            type="date"
+            name="birthdate"
+            value="<%= members.birthdate %>"
+            placeholder="Fecha de nacimiento"
+          />
+          <input
+            type="text"
+            name="variableQR"
+            placeholder="Membresía #"
+            value="<%= members.variableQR %>"
+            class="form-control mb-2"
+            disabled
+            hidden
+          />
+          <button
+            type="submit"
+            class="btn btn-primary w-100 text-uppercase fw-semibold mobile-btn-csize btn-custom-shadow"
+          >
+            Actualizar Miembro
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Obtener el valor recibido por el controlador de rutas
+    var valorRecibido = "VIP"; // Asigna aquí el valor recibido dinámicamente
+
+    // Obtener el elemento de selección
+    var select = document.getElementById("membershipType");
+
+    // Recorrer las opciones y establecer 'selected' en la opción correspondiente
+    for (var i = 0; i < select.options.length; i++) {
+      if (select.options[i].value === valorRecibido) {
+        select.options[i].selected = true;
+        break;
+      }
+    }
+  });
+</script>
+
+<%- include("partials/_footer") %>

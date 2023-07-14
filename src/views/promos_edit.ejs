@@ -1,0 +1,125 @@
+<%- include("partials/_header") %>
+<div class="custom-empty-half-space"></div>
+<h1 class="text-light text-uppercase text-center">
+  Editar Promoción #<%= promos.id %>
+</h1>
+<div class="custom-empty-half-space"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-sm-12 mx-auto">
+      <div
+        class="card-body w-100 mx-auto bg-light p-3 rounded-1 custom-card-shadow"
+      >
+        <form
+          action="/update-promos/<%= promos.id %>"
+          method="POST"
+          class="pb-4"
+        >
+          <input
+            type="number"
+            name="id"
+            value="<%= promos.id %>"
+            placeholder="ID de Promoción"
+            class="form-control mb-2"
+            hidden
+          />
+          <br />
+
+          <h3 class="text-center">
+            Tipo de promoción: <%= promos.membershipType %>
+          </h3>
+
+          <br />
+          <select
+            id="memberTypeBtn"
+            class="form-select mb-2"
+            name="membershipType"
+            value="<%= promos.membershipType %>"
+            aria-label="Default select example"
+            hidden
+          >
+            <option id="vipSelectOpt" value="VIP">VIP</option>
+            <option id="preferenteSelectOpt" value="Preferente">
+              Preferente
+            </option>
+          </select>
+          <label for="title">Título de la promoción</label>
+          <input
+            type="text"
+            name="title"
+            value="<%= promos.title %>"
+            placeholder="Título de la promo"
+            class="form-control mb-2"
+            autofocus
+            required
+          />
+          <label for="id">Descripción de la promoción:</label>
+          <textarea
+            class="form-control mb-2"
+            placeholder="Descripción de la promo"
+            id="floatingTextarea"
+            name="description"
+            value="<%= promos.description %>"
+            rows="5"
+            required
+          >
+<%= promos.description %></textarea
+          >
+          <div class="d-flex mb-2">
+            <p
+              id="active-btn-on"
+              class="btn btn-light w-100 mx-1 btn-custom-shadow"
+            >
+              Activa
+            </p>
+            <p
+              id="active-btn-off"
+              class="btn btn-dark w-100 mx-1 btn-custom-shadow"
+            >
+              Inactiva
+            </p>
+          </div>
+          <input
+            type="text"
+            name="active"
+            id="activeInput"
+            placeholder="Estado de la promo"
+            class="form-control mb-2"
+            value="<%= promos.active %>"
+            hidden
+          />
+          <label class="form-label" for="endDate">Vigencia:</label>
+          <input
+            id="endDate"
+            class="form-control mb-3"
+            type="text"
+            required
+            onfocus='(this.type="date")'
+            placeholder="<%= promos.validity %>"
+            name="validity"
+            value="<%= promos.validity %>"
+          />
+          <label class="form-label" for="formFile">Imagen:</label>
+          <div
+            class="container mb-2"
+            style="
+              height: 215px;
+              background-image: url('/uploads/<%= promos.image %>');
+              background-size: contain;
+              background-repeat: no-repeat;
+              border-radius: 5px;
+            "
+          ></div>
+          <button
+            type="submit"
+            class="btn btn-success mt-3 w-100 text-uppercase fw-semibold mobile-btn-csize btn-custom-shadow"
+          >
+            Guardar Promoción
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/promo-status.js"></script>
+<%- include("partials/_footer") %>

@@ -1,0 +1,188 @@
+<%- include("partials/_header") %>
+<div class="custom-empty-half-space"></div>
+<h1 class="text-light text-center">VISITAS</h1>
+<div class="custom-empty-half-space"></div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form action="/visits" method="GET">
+        <div
+          class="row custom-responsive-width mx-auto align-items-center justify-content-center"
+        >
+          <div class="col-12 mb-2">
+            <label for="option" class="text-light fw-semibold"
+              >Sucursales:</label
+            >
+            <select
+              name="id_branch"
+              id="option"
+              class="form-select custom-card-shadow"
+              required
+              autofocus
+            >
+              <option value="1">Izcalli</option>
+              <option value="2">Coacalco</option>
+              <option value="3">Americas</option>
+              <option value="4">Satélite</option>
+              <option value="5">Linda Vista</option>
+              <option value="6">Aragon</option>
+              <option value="7">Mariano Escobedo</option>
+              <option value="8">Sullivan</option>
+              <option value="9">Narvarte</option>
+              <option value="10">Coapa</option>
+              <option value="11">Tlalpan</option>
+            </select>
+          </div>
+          <div class="col-6 my-2">
+            <label class="text-light fw-semibold" for="startDate"
+              >De la fecha:</label
+            >
+            <input
+              class="form-control custom-card-shadow"
+              type="date"
+              name="startDate"
+              id="startDate"
+              required
+            />
+          </div>
+
+          <div class="col-6 my-2">
+            <label class="text-light fw-semibold" for="endDate"
+              >A la fecha:</label
+            >
+            <input
+              class="form-control custom-card-shadow"
+              type="date"
+              name="endDate"
+              id="endDate"
+              required
+            />
+          </div>
+          <div class="col-12 mt-4">
+            <button
+              style="width: 100%"
+              class="btn btn-primary px-5 py-2 btn-custom-shadow fw-semibold text-uppercase"
+              type="submit"
+            >
+              Filtrar visitas
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="custom-empty-half-space"></div>
+    <div class="col-12">
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>SUCURSAL</th>
+            <th>MEMBRESÍA</th>
+            <th>USUARIO QUE REGISTRO LA VISITA</th>
+            <th>FECHA DE LA VISITA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (visits) { %> <% for(var i = 0; i < visits.length; i++) { %>
+          <tr>
+            <td data-cell="id"><%= visits[i].id_visit %></td>
+            <td id="branchTd" data-cell="sucursal">
+              <%= visits[i].id_branch %>
+            </td>
+            <td data-cell="membresía"><%= visits[i].id_member %></td>
+            <td id="userRegisterTd" data-cell="usuario que registro">
+              <%= visits[i].id_user_register %>
+            </td>
+            <td data-cell="fecha de visita"><%= visits[i].visitDate %></td>
+          </tr>
+          <% } %> <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var branches = document.querySelectorAll("#branchTd");
+    var registers = document.querySelectorAll("#userRegisterTd");
+
+    let branchOne = "Izcalli";
+    let branchTwo = "Coacalco";
+    let branchThree = "Americas";
+    let branchFour = "Satélite";
+    let branchFive = "Linda Vista";
+    let branchSix = "Aragon";
+    let branchSeven = "Mariano Escobedo";
+    let branchEight = "Sullivan";
+    let branchNine = "Narvarte";
+    let branchTen = "Coapa";
+    let branchEleven = "Tlalpan";
+
+    let userRegisterOne = "chizcalli";
+    let userRegisterTwo = "chcoacalco";
+    let userRegisterThree = "chamericas";
+    let userRegisterFour = "chsatélite";
+    let userRegisterFive = "chlindavista";
+    let userRegisterSix = "charagon";
+    let userRegisterSeven = "chescobedo";
+    let userRegisterEight = "chsullivan";
+    let userRegisterNine = "chnarvarte";
+    let userRegisterTen = "chcoapa";
+    let userRegisterEleven = "chtlalpan";
+
+    for (var i = 0; i < branches.length; i++) {
+      const test = branches[i].innerHTML.trim();
+      if (test == 11) {
+        branches[i].innerHTML = branchEleven;
+      } else if (test == 10) {
+        branches[i].innerHTML = branchTen;
+      } else if (test == 9) {
+        branches[i].innerHTML = branchNine;
+      } else if (test == 8) {
+        branches[i].innerHTML = branchEight;
+      } else if (test == 7) {
+        branches[i].innerHTML = branchSeven;
+      } else if (test == 6) {
+        branches[i].innerHTML = branchSix;
+      } else if (test == 5) {
+        branches[i].innerHTML = branchFive;
+      } else if (test == 4) {
+        branches[i].innerHTML = branchFour;
+      } else if (test == 3) {
+        branches[i].innerHTML = branchThree;
+      } else if (test == 2) {
+        branches[i].innerHTML = branchTwo;
+      } else if (test == 10) {
+        branches[i].innerHTML = branchOne;
+      }
+    }
+
+    for (var i = 0; i < registers.length; i++) {
+      const userReg = registers[i].innerHTML.trim();
+      if (userReg == 11) {
+        registers[i].innerHTML = userRegisterEleven;
+      } else if (userReg == 10) {
+        registers[i].innerHTML = userRegisterTen;
+      } else if (userReg == 9) {
+        registers[i].innerHTML = userRegisterNine;
+      } else if (userReg == 8) {
+        registers[i].innerHTML = userRegisterEight;
+      } else if (userReg == 7) {
+        registers[i].innerHTML = userRegisterSeven;
+      } else if (userReg == 6) {
+        registers[i].innerHTML = userRegisterSix;
+      } else if (userReg == 5) {
+        registers[i].innerHTML = userRegisterFive;
+      } else if (userReg == 4) {
+        registers[i].innerHTML = userRegisterFour;
+      } else if (userReg == 3) {
+        registers[i].innerHTML = userRegisterThree;
+      } else if (userReg == 2) {
+        registers[i].innerHTML = userRegisterTwo;
+      } else if (userReg == 10) {
+        registers[i].innerHTML = userRegisterOne;
+      }
+    }
+  });
+</script>
+<%- include("partials/_footer") %>

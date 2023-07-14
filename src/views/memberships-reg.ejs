@@ -1,0 +1,161 @@
+<%- include("partials/_header") %>
+<script src="/js/login.js"></script>
+<div class="custom-empty-half-space"></div>
+<h1 class="text-light text-uppercase text-center">Membresías</h1>
+<div class="custom-empty-half-space"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-sm-12 mx-auto">
+      <div class="card-body w-100 bg-light p-3 rounded-1 custom-card-shadow">
+        <form action="/add-reg" method="POST" id="mi-formulario">
+          <h2 class="fs-4 text-center mb-5 mt-3">Membresía #<%= memberQr %></h2>
+          <select
+            id="selectBranchInput"
+            class="form-select mb-2"
+            name="branch"
+            hidden
+          >
+            <option value="<%= userId %>">Sucursal</option>
+            <option value="<%= userId %>" id="getUserId">Izcalli</option>
+            <option value="<%= userId %>">Coacalco</option>
+            <option value="<%= userId %>">Las Américas</option>
+            <option value="<%= userId %>">Satélite</option>
+            <option value="<%= userId %>">Lindavista</option>
+            <option value="<%= userId %>">Bosques de Aragón</option>
+            <option value="<%= userId %>">Mariano Escobedo</option>
+            <option value="<%= userId %>">Sullivan</option>
+            <option value="<%= userId %>">Narvarte Oriente</option>
+            <option value="<%= userId %>">Coapa</option>
+            <option value="<%= userId %>">Tlalpan</option>
+          </select>
+          <select
+            class="form-select mb-2"
+            name="membership"
+            aria-label="Default select example"
+          >
+            <option selected>Membresía</option>
+            <option value="VIP">VIP</option>
+            <option value="Preferente">Preferente</option>
+          </select>
+          <input
+            type="text"
+            name="name"
+            placeholder="Nombre"
+            class="form-control mb-2"
+            autofocus
+          />
+          <select
+            class="form-select mb-2"
+            name="gender"
+            aria-label="Default select example"
+          >
+            <option selected>Género</option>
+            <option value="Hombre">Hombre</option>
+            <option value="Mujer">Mujer</option>
+            <option value="Otro">Otro</option>
+          </select>
+          <input
+            type="email"
+            name="address"
+            placeholder="E-mail"
+            class="form-control mb-2"
+          />
+          <input
+            type="text"
+            name="phone"
+            placeholder="Teléfono"
+            class="form-control mb-2"
+          />
+          <p class="mt-3">Medios de contacto preferidos:</p>
+          <div class="form-check mb-2">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="Correo"
+              id="checkbox-email"
+            />
+            <label class="form-check-label" for="checkbox-email">
+              Correo electrónico
+            </label>
+          </div>
+          <div class="form-check mb-2">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="Teléfono"
+              id="checkbox-tel"
+            />
+            <label class="form-check-label" for="checkbox-tel">
+              Teléfono
+            </label>
+          </div>
+          <div class="form-check mb-2">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="Whatsapp"
+              id="checkbox-wa"
+            />
+            <label class="form-check-label" for="checkbox-wa"> WhatsApp </label>
+          </div>
+          <input
+            type="hidden"
+            name="cmeans"
+            placeholder="Medios de contacto"
+            class="form-control mb-2"
+            id="checkbox-contact-means"
+            value=" "
+          />
+          <label class="mobile-lbl-csize my-3" for="startDate"
+            >Fecha de nacimiento:</label
+          >
+          <input
+            id="startDate"
+            class="form-control mb-2"
+            type="date"
+            name="birthdate"
+            placeholder="Fecha de nacimiento"
+          />
+          <input
+            type="text"
+            name="variableQR"
+            placeholder="variableQR"
+            class="form-control mb-2"
+            id="setMemberQr"
+            value=""
+            hidden
+          />
+          <input
+            type="text"
+            name="active"
+            value="1"
+            class="form-control mb-2"
+            hidden
+          />
+          <button
+            type="submit"
+            class="btn btn-success mt-3 w-100 text-uppercase fw-semibold mobile-btn-csize btn-custom-shadow"
+          >
+            Guardar membresía
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="custom-empty-half-space"></div>
+  </div>
+</div>
+<script>
+  const selectInput = document.getElementById("selectBranchInput");
+  const numeroBuscado = document.getElementById("getUserId").value;
+
+  for (let i = 0; i < selectInput.options.length; i++) {
+    const option = selectInput.options[i];
+    if (i === parseInt(numeroBuscado)) {
+      option.defaultSelected = true;
+      break;
+    }
+  }
+</script>
+<script src="/js/contact-means.js"></script>
+<script src="/js/http-input.js"></script>
+<%- include("partials/_footer") %>

@@ -1,0 +1,75 @@
+<%- include("partials/_header") %>
+<!-- <% if (promo) { %> <% for(var i = 0; i < promo.length; i++) { %> -->
+<div class="custom-empty-half-space"></div>
+<h1 class="text-light text-uppercase text-center">
+  Canjear Promo #<%= promo[0].id %>
+</h1>
+<div class="custom-empty-half-space"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-sm-12 mx-auto">
+      <div class="card">
+        <img class="card-img-top" src="/uploads/<%= promo[0].image %>" />
+        <div class="card-body w-100 bg-light p-3 rounded-1 custom-card-shadow">
+          <form
+            action="/redeem/<%= promo[0].id %>"
+            method="POST"
+            id="mi-formulario"
+          >
+            <h3 class="my-3 fs-6">
+              Título: <span class="fw-normal"><%= promo[0].title %></span>
+            </h3>
+            <h3 class="my-3 fs-6">
+              Descripción:
+              <span class="fw-normal"><%= promo[0].description %></span>
+            </h3>
+            <h3 class="my-3 fs-6">
+              Tipo:
+              <span class="fw-normal"><%= promo[0].membershipType %></span>
+            </h3>
+            <h3 class="my-3 fs-6">
+              Vigencia:
+              <span class="fw-normal"><%= promo[0].validity %></span>
+            </h3>
+            <input
+              type="text"
+              name="id_member_use"
+              value="<%= memberQr %>"
+              class="form-control mb-2"
+              hidden
+            />
+            <input
+              type="text"
+              name="usedDate"
+              value="<%= formattedDate %>"
+              class="form-control mb-2"
+              hidden
+            />
+            <input
+              type="text"
+              name="id_branch"
+              value="<%= userId %>"
+              class="form-control mb-2"
+              hidden
+            />
+            <input
+              type="text"
+              name="id_promo"
+              value="<%= promo[0].id %>"
+              class="form-control mb-2"
+              hidden
+            />
+            <button
+              type="submit"
+              class="btn btn-success mt-3 w-100 text-uppercase fw-semibold mobile-btn-csize btn-custom-shadow"
+            >
+              Confirmar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <% } %> <% } %>  -->
+<%- include("partials/_footer") %>

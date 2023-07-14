@@ -1,0 +1,384 @@
+@font-face {
+  font-family: "belta_regularregular";
+  src: url("../font/belta-regular-webfont.woff2") format("woff2"),
+    url("../font/belta-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Nossible";
+  src: url("../font/Nossible.woff2") format("woff2"),
+    url("../font/Nossible.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+body {
+  background-color: #343334;
+}
+
+.navbar-shadow {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.main-custom-nav {
+  background-color: #343334 !important;
+}
+
+.nav-custom-logo {
+  width: 100px;
+  height: auto;
+}
+
+.nav-link {
+  color: white;
+  transition: all 0.3s ease-in-out;
+  font-weight: 600;
+  margin-right: 10px;
+}
+.nav-link:hover {
+  color: lightgray !important;
+}
+
+.nav-link.active {
+  color: gainsboro !important;
+}
+
+.custom-header-section {
+  height: 100vh;
+  background: linear-gradient(
+      to bottom,
+      rgba(52, 51, 52, 0.7) 0%,
+      rgba(52, 51, 52, 1) 100%
+    ),
+    url(../img/pizza_e.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  padding-top: 4.5rem;
+  padding-bottom: 0;
+}
+
+.custom-header-wrapper {
+  width: 67.5%;
+  height: 85%;
+}
+
+.custom-header-right,
+.custom-header-left {
+  height: 50%;
+}
+
+.custom-header-left {
+  line-height: 20px;
+}
+
+.belta-custom-font {
+  font-family: "belta_regularregular";
+}
+
+.second-custom-carousel .carousel-item {
+  border: 5px solid white;
+}
+
+.subtitle-custom-fsize {
+  font-size: 50px;
+  letter-spacing: 2pt;
+  word-spacing: 5pt;
+}
+
+.ubuntu-custom-font {
+  font-family: "Ubuntu", sans-serif;
+}
+
+.montserrat-custom-font {
+  font-family: "Montserrat", sans-serif;
+  text-align: justify;
+}
+
+.custom-empty-space {
+  height: 150px;
+}
+
+.custom-empty-half-space {
+  height: 75px;
+}
+
+.footer-custom-logo {
+  height: auto;
+  width: 250px;
+}
+
+.fa-pizza-slice,
+.fa-heart,
+.fa-facebook-square,
+.fa-instagram-square {
+  height: auto;
+  width: 15px;
+}
+
+.custom-footer-txt {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.custom-font-sans {
+  font-family: "Searocks", "sans-serif" !important;
+}
+
+.custom-fs-65 {
+  font-size: 65px;
+}
+
+.custom-fs-10 {
+  font-size: 12px;
+}
+
+.custom-font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+.custom-wspacing {
+  word-spacing: 5pt;
+}
+
+hr.coqueton {
+  overflow: visible;
+  height: 30px;
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 2px 0 0 0;
+  border-radius: 20px;
+}
+hr.coqueton:before {
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 0 0 2px 0;
+  border-radius: 20px;
+}
+
+.coqueton-customw {
+  width: 350px;
+}
+
+.custom-font-oswald {
+  font-family: "Oswald", sans-serif;
+}
+
+.entre-platillos {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.75),
+    rgba(52, 51, 52, 0)
+  );
+}
+
+.custom-table-shadow {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.custom-txtarea-height {
+  height: 125px;
+}
+
+.custom-fsize-especialidad {
+  font-size: 17px;
+}
+
+.custom-fsize-extras {
+  font-size: 12px;
+}
+
+.custom-empty-quarter-space {
+  height: 35px;
+}
+
+.custom-rpadding {
+  padding-right: 30px;
+}
+
+.custom-rrpadding {
+  padding-right: 30px !important;
+}
+
+.btn-custom-shadow {
+  border: none !important;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+tr,
+.custom-card-shadow {
+  border-color: rgba(0, 0, 0, 0);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+/* Promos-cat */
+#promo-img {
+  height: 731px;
+}
+.mobile-btn-csize {
+  width: 25%;
+  height: 40px;
+  font-size: 18px;
+}
+/* Pizzarellena */
+.custom-resp-width {
+  width: 50%;
+}
+.custom-resp-width-50 {
+  width: 350px;
+}
+.custom-resp-width-45 {
+  width: 45%;
+}
+.custom-resp-width-25 {
+  width: 23%;
+}
+/* Visits */
+.custom-responsive-width {
+  width: 50%;
+}
+@media (max-width: 600px) {
+  /* Home */
+  .custom-header-wrapper {
+    width: 100%;
+    height: 85%;
+  }
+  #facebook-iframe-widget {
+    border: none;
+    visibility: visible;
+    width: 100%;
+    height: 500px;
+  }
+  .mobile-hide {
+    display: none;
+  }
+  /* Pizzarellena */
+  .custom-fs-65 {
+    font-size: 35px;
+  }
+  .mobile-padding-0 {
+    padding: 0px;
+  }
+  .mobile-text-center {
+    text-align: center;
+  }
+  .mobile-full-width {
+    width: 100%;
+  }
+  .custom-resp-width {
+    width: 100%;
+  }
+  .custom-resp-width-25 {
+    width: 25%;
+  }
+  .custom-resp-width-50 {
+    width: 100%;
+  }
+  /* Pizzatradicional */
+  .custom-resp-width-100 {
+    width: 100%;
+  }
+  /* Promos-cat */
+  #promo-img {
+    height: 205px;
+  }
+  .custom-resp-width {
+    width: 327px;
+  }
+  th {
+    display: none;
+  }
+  td {
+    display: grid;
+    grid-template-columns: 20ch auto;
+    font-size: 15px;
+  }
+  td:first-child {
+    margin-top: 2rem !important;
+  }
+  td:last-child {
+    padding-bottom: 2rem !important;
+  }
+  tr {
+    border-radius: 5px !important;
+  }
+  .mobile-btn-csize {
+    width: 100%;
+    height: 50px;
+    font-size: 22px;
+  }
+  .form-control,
+  .form-select {
+    height: 50px;
+    font-size: 20px;
+    margin: 15px 0;
+  }
+  .mobile-lbl-csize {
+    text-transform: uppercase;
+    display: block;
+    padding: 10px 5px;
+  }
+  table {
+    border-collapse: inherit;
+  }
+
+  .mobile-title-csize {
+    font-size: 35px;
+  }
+  .mobile-subt-fsize {
+    font-size: 8px;
+  }
+  /* Promociones */
+  .custom-mobile-fs-toggle {
+    font-size: 18px;
+  }
+  #navbarNavDropdown {
+    padding: 15px;
+  }
+
+  .mobile-custom-fsize-subdecs {
+    font-size: 25px !important;
+  }
+  .mobile-custom-fsize-title {
+    font-size: 55px !important;
+  }
+  .mobile-custom-fsize-subtitle {
+    font-size: 20px !important;
+  }
+  .mobile-calignment {
+    text-align: center;
+  }
+  .mobile-csize-image {
+    height: auto;
+    width: 100%;
+    margin-bottom: 35px;
+  }
+  td::before {
+    content: attr(data-cell) "";
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  /* Visits mobile */
+  .custom-responsive-width {
+    width: 100%;
+  }
+}

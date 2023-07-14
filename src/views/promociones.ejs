@@ -1,0 +1,156 @@
+<%- include("partials/_header") %>
+<div class="custom-empty-half-space"></div>
+<h1 class="text-light text-uppercase text-center">Promociones</h1>
+<div class="custom-empty-half-space"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-sm-12 mx-auto">
+      <div class="card-body w-100 bg-light p-3 rounded-1 custom-card-shadow">
+        <form action="/add-promo" method="POST" enctype="multipart/form-data">
+          <input
+            type="number"
+            name="id"
+            placeholder="ID de Promoción"
+            class="form-control mb-2"
+            disabled
+            hidden
+          />
+          <select
+            class="form-select mb-2"
+            name="membershipType"
+            aria-label="Default select example"
+            required
+          >
+            <option selected>Tipo de promoción</option>
+            <option value="VIP">VIP</option>
+            <option value="Preferente">Preferente</option>
+          </select>
+          <input
+            type="text"
+            name="title"
+            placeholder="Título de la promo"
+            class="form-control mb-2"
+            autofocus
+            required
+          />
+          <textarea
+            class="form-control mb-2"
+            placeholder="Descripción de la promo"
+            id="floatingTextarea"
+            name="description"
+            rows="5"
+            required
+          ></textarea>
+          <div class="d-flex my-4">
+            <p
+              id="active-btn-on"
+              class="btn btn-light w-100 mx-1 btn-custom-shadow custom-mobile-fs-toggle"
+            >
+              Promoción Activa
+            </p>
+            <p
+              id="active-btn-off"
+              class="btn btn-dark w-100 mx-1 btn-custom-shadow custom-mobile-fs-toggle"
+            >
+              Promoción Inactiva
+            </p>
+          </div>
+          <input
+            type="text"
+            name="active"
+            id="activeInput"
+            placeholder="Estado de la promo"
+            class="form-control mb-2"
+            value="0"
+            hidden
+          />
+          <label class="form-label" for="endDate">Vigencia:</label>
+          <input
+            id="endDate"
+            class="form-control mb-3"
+            type="date"
+            placeholder="Fecha de vencimiento"
+            name="validity"
+            required
+          />
+          <label class="form-label" for="formFile">Imagen:</label>
+          <input
+            class="form-control"
+            type="file"
+            name="image"
+            id="formFile"
+            required
+          />
+          <button
+            type="submit"
+            class="btn btn-success mt-3 w-100 text-uppercase fw-semibold mobile-btn-csize btn-custom-shadow"
+          >
+            Guardar Promoción
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="custom-empty-half-space"></div>
+    <div class="col-12">
+      <table class="table table-striped table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tipo</th>
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Estatus</th>
+            <th>Vigencia</th>
+            <th>Imagen</th>
+            <th>Operaciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (promos) { %> <% for(var i = 0; i < promos.length; i++) { %>
+          <tr>
+            <td data-cell="id"><%= promos[i].id %></td>
+            <td data-cell="tipo"><%= promos[i].membershipType %></td>
+            <td data-cell="titulo"><%= promos[i].title %></td>
+            <td data-cell="descripción"><%= promos[i].description %></td>
+            <td data-cell="estatus" id="promo-status-td">
+              <%= promos[i].active %>
+            </td>
+            <td data-cell="vigencia"><%= promos[i].validity %></td>
+            <td
+              style="
+                background-image: url('/uploads/<%= promos[i].image %>');
+                background-size: contain;
+                background-repeat: no-repeat;
+                height: 260px;
+              "
+              data-cell="imagen"
+              id="promo-img"
+            >
+              <span style="opacity: 0"><%= promos[i].image %></span>
+            </td>
+            <td data-cell="Acciones">
+              <div class="d-flex flex-column w-100">
+                <a
+                  href="/update-promos/<%= promos[i].id %>"
+                  class="btn btn-dark w-100 my-1 fw-semibold text-uppercase mobile-btn-csize btn-custom-shadow"
+                >
+                  Editar
+                </a>
+                <a
+                  href="/delete-promos/<%= promos[i].id %>"
+                  class="btn btn-danger w-100 my-1 fw-semibold text-uppercase mobile-btn-csize btn-custom-shadow"
+                >
+                  Eliminar
+                </a>
+              </div>
+            </td>
+          </tr>
+          <% } %> <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<script src="/js/active-buttons.js"></script>
+<script src="/js/promo-status-table.js"></script>
+<%- include("partials/_footer") %>
