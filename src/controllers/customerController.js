@@ -53,11 +53,10 @@ export const createPromos = async (req, res) => {
     }
 
     const newPromo = req.body;
-    const filename = req.file ? req.file.filename : null;
     newPromo.membershipType = newPromo.membershipType.trim(); // Limpiar espacios en blanco
 
-    const query = "INSERT INTO promos SET ?, image = IFNULL(?, 'default.jpg')";
-    await pool.query(query, [newPromo, filename]);
+    const query = "INSERT INTO promos SET ?";
+    await pool.query(query, [newPromo]);
     res.redirect("/promociones");
   });
 };
