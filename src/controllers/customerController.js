@@ -357,6 +357,8 @@ export const loadRegisterVisit = async (req, res) => {
     "SELECT * FROM members WHERE variableQR = ?",
     [memberQr]
   );
+  console.log("-------------------------------Z");
+  console.log(memberQr);
   res.render("register-visit", { memberQr, userId, visit: memberVisit[0] });
 };
 
