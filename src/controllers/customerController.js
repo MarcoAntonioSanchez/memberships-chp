@@ -36,6 +36,7 @@ export const renderPromos = async (req, res) => {
     "SELECT *, DATE_FORMAT(validity, '%d/%M/%Y') AS validity FROM promos";
   const [rows] = await pool.query(query);
   res.render("promociones", { userId: userId, promos: rows });
+  console.log(rows);
 };
 
 export const createCustomers = async (req, res) => {
@@ -54,7 +55,7 @@ export const createPromos = async (req, res) => {
 
     const newPromo = req.body;
     newPromo.membershipType = newPromo.membershipType.trim(); // Limpiar espacios en blanco
-
+    newPromo.image = req.file ? req.file.filename : null;
     const query = "INSERT INTO promos SET ?";
     await pool.query(query, [newPromo]);
     res.redirect("/promociones");

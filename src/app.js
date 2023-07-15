@@ -12,7 +12,7 @@ import session from "express-session";
 import dotenv from "dotenv";
 dotenv.config();
 
-import flash from 'connect-flash';
+import flash from "connect-flash";
 
 const app = express();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -23,9 +23,11 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 // middlewares
+app.use(express.static(path.join(__dirname, "public")));
 app.use(flash());
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
+// static files
 
 app.use(
   session({
@@ -34,7 +36,6 @@ app.use(
     saveUninitialized: false,
   })
 );
-
 // Multer - upload images
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -44,15 +45,11 @@ const storage = multer.diskStorage({
     cb(null, Date.now() + "-" + file.originalname); // Nombre del archivo
   },
 });
-
 export const upload = multer({ storage: storage });
 
 // routes
 app.use(customerRoutes);
 app.use(staticRoutes);
-
-// static files
-app.use(express.static(path.join(__dirname, "public")));
 
 // starting the server
 export default app;
