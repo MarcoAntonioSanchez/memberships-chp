@@ -3,6 +3,7 @@
 <h1 class="text-light text-uppercase text-center">Promociones</h1>
 <div class="custom-empty-half-space"></div>
 <div class="container mb-5">
+  <% if (userId > 0 && userId < 12) { %>
   <div class="row">
     <div class="col">
       <h2 class="fs-6 text-light text-center">
@@ -15,6 +16,7 @@
       </h2>
     </div>
   </div>
+  <% } %>
 </div>
 <div class="container">
   <div class="row">
